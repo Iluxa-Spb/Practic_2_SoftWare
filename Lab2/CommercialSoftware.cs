@@ -1,12 +1,13 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Lab2
 {
     [Serializable]
     class CommercialSoftware : Software
     {
-        private int _Price { get; set; }
-        private DateTime _DataUseful { get; set; }
+        private int Price { get; set; }
+        private DateTime DataUseful { get; set; }
         /// <summary>
         /// class commercial software include from Software
         /// </summary>
@@ -18,16 +19,17 @@ namespace Lab2
         public CommercialSoftware(string title, string manufacturer, DateTime date, int price, DateTime dateuseful)
             :base(title, manufacturer, date)
         {
-            _Price = price;
-            _DataUseful = dateuseful;
+            Price = price;
+            DataUseful = dateuseful;
         }
         /// <summary>
         /// display method
         /// </summary>
         public override void Display()
         {
+            Trace.WriteLine("Display: " + ToString());
             DateTime DateNow = DateTime.Now;
-            Console.WriteLine($"Commercial = Title: {GetTitle()}, manufacturer: {GetManufacturer()}, install data: {GetDateCreate()}, price: {_Price}, date useful: {_DataUseful.Subtract(DateNow)}");
+            Console.WriteLine($"Commercial = Title: {GetTitle()}, manufacturer: {GetManufacturer()}, install data: {GetDateCreate()}, price: {GetPrice()}, date useful: {GetDataUseful().Subtract(DateNow)}");
         }
         /// <summary>
         /// boolean method return active software or not
@@ -36,16 +38,16 @@ namespace Lab2
         public override bool IsActive()
         {
             DateTime DateNow = DateTime.Now;
-            if (_DataUseful < DateNow) return false;
+            if (DataUseful < DateNow) return false;
             else return true;
         }
         public int GetPrice()
         {
-            return _Price;
+            return Price;
         }
         public DateTime GetDataUseful()
         {
-            return _DataUseful;
+            return DataUseful;
         }
     }
 }

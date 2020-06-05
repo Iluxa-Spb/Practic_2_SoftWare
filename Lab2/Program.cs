@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+
 namespace Lab2
 {
     class Program
@@ -9,6 +11,8 @@ namespace Lab2
         /// <param name="args"></param>
         static void Main(string[] args)
         {
+            Trace.WriteLine("Trace Information-Product Starting ");
+            Trace.Indent();
             //SoftwareList Software = new SoftwareList();
             //Software.Add(new FreeSoftware("Visual Studio", "Microsoft", new DateTime(2020, 1, 12, 00, 00, 00)));
             //Software.Add(new SharewareSoftware("Outlook", "Microsoft", new DateTime(2020, 1, 12, 00, 00, 00), new DateTime(2021, 6, 12, 00, 00, 00)));

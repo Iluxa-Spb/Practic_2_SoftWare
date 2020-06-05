@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Lab2
 {
@@ -8,9 +9,9 @@ namespace Lab2
     [Serializable]
     abstract class Software
 {
-    private string _Title { get; set; }
-    private string _Manufacturer { get; set; }
-    private DateTime _DateCreate { get; set; }
+    private string Title { get; set; }
+    private string Manufacturer { get; set; }
+    private DateTime DateCreate { get; set; }
         /// <summary>
         /// init Software class
         /// </summary>
@@ -19,9 +20,11 @@ namespace Lab2
         /// <param name="date">data create software</param>
         public Software(string title, string manufacturer, DateTime date)
     {
-            _Title = title;
-            _Manufacturer = manufacturer;
-            _DateCreate = date;
+            Trace.WriteLine("Software create: " + ToString());
+            Trace.Indent();
+            Title = title;
+            Manufacturer = manufacturer;
+            DateCreate = date;
     }
         /// <summary>
         /// abstract display method
@@ -35,17 +38,17 @@ namespace Lab2
 
         public string GetTitle()
         {
-            return _Title;
+            return Title;
         }
 
         public string GetManufacturer()
         {
-            return _Manufacturer;
+            return Manufacturer;
         }
 
         public DateTime GetDateCreate()
         {
-            return _DateCreate;
+            return DateCreate;
         }
     }
 }

@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace Lab2
 {
     [Serializable]
     class SharewareSoftware : Software
     {
-        private DateTime _DataUseful { get; set; }
+        private DateTime DataUseful { get; set; }
         /// <summary>
         /// class shareware software include from Software
         /// </summary>
@@ -16,15 +17,17 @@ namespace Lab2
         public SharewareSoftware(string title, string manufacturer, DateTime date, DateTime dateuseful)
             :base (title, manufacturer, date)
         {
-            _DataUseful = dateuseful;
+            Trace.WriteLine("Software create " + DataUseful + GetDataUseful());
+            DataUseful = dateuseful;
         }
         /// <summary>
         /// display method
         /// </summary>
         public override void Display()
         {
+            Trace.WriteLine("Display: " + ToString());
             DateTime DateNow = DateTime.Now;
-            Console.WriteLine($"Shareware = Title: {GetTitle()}, manufacturer: {GetManufacturer()}, install data: {GetDateCreate()}, date useful: {_DataUseful.Subtract(DateNow)}");
+            Console.WriteLine($"Shareware = Title: {GetTitle()}, manufacturer: {GetManufacturer()}, install data: {GetDateCreate()}, date useful: {DataUseful.Subtract(DateNow)}");
         }
         /// <summary>
         /// boolean method return active software or not
@@ -33,12 +36,12 @@ namespace Lab2
         public override bool IsActive()
         {
             DateTime DateNow = DateTime.Now;
-            if (_DataUseful < DateNow) return false;
+            if (DataUseful < DateNow) return false;
             else return true;
         }
         public DateTime GetDataUseful()
         {
-            return _DataUseful;
+            return DataUseful;
         }
     }
 }

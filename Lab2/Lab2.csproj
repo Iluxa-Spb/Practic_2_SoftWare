@@ -5,4 +5,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\Users\Admin\Desktop\Технология разработки программного обеспечения (C#)\Практическая работа 2\Lab2\Lab2\Lab2.xml</DocumentationFile>
+  </PropertyGroup>
+
 </Project>

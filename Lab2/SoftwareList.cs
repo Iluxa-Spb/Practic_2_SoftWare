@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
@@ -8,13 +9,14 @@ namespace Lab2
     [Serializable]
     class SoftwareList
     {
-        List<Software> _SoftwareList;
+        List<Software> SoftList;
         /// <summary>
         /// default
         /// </summary>
         public SoftwareList()
         {
-            _SoftwareList = new List<Software>();
+            Trace.WriteLine("List create: "+ToString());
+            SoftList = new List<Software>();
         }
         /// <summary>
         /// overloading in file
@@ -31,14 +33,15 @@ namespace Lab2
         /// <param name="software"></param>
         public void Add(Software software)
         {
-            _SoftwareList.Add(software);
+            Trace.WriteLine(ToString() + " Add to " + software.ToString());
+            SoftList.Add(software);
         }
         /// <summary>
         /// show all list
         /// </summary>
         public void Show()
         {
-            foreach (Software soft in _SoftwareList)
+            foreach (Software soft in SoftList)
             {
                 soft.Display();
             }
@@ -49,12 +52,15 @@ namespace Lab2
         /// <param name="searchString">search string</param>
         public void Search(string searchString)
         {
-            foreach (Software soft in _SoftwareList)
+            foreach (Software soft in SoftList)
             {
                 if (soft.GetTitle().Contains(searchString)||soft.GetManufacturer().Contains(searchString))
                 {
                     if (soft.IsActive())
+                    {
+                        Trace.WriteLine("Find: "+soft.ToString());
                         soft.Display();
+                    }
                 }
             }
         }
@@ -67,14 +73,17 @@ namespace Lab2
         {
             try
             {
+                Trace.WriteLine("File write starting..."+path+fileName);
                 FileStream stream = File.Create($"{path}\\{fileName}");
                 BinaryFormatter formatter = new BinaryFormatter();
                 //Сериализация
-                formatter.Serialize(stream, _SoftwareList);
+                formatter.Serialize(stream, SoftList);
                 stream.Close();
+                Trace.WriteLine("File write complete..."+path+fileName);
             }
             catch
             {
+                Trace.TraceError("Error write file!");
                 throw new ArgumentNullException();
             }
             
@@ -88,12 +97,15 @@ namespace Lab2
         {
             try
             {
+                Trace.WriteLine("File reading start..." + path + fileName);
                 FileStream stream = File.OpenRead($"{path}\\{fileName}");
                 BinaryFormatter formatter = new BinaryFormatter();
-                _SoftwareList = formatter.Deserialize(stream) as List<Software>;
+                SoftList = formatter.Deserialize(stream) as List<Software>;
+                Trace.WriteLine("File reading..."+path+fileName);
             }
             catch
             {
+                Trace.TraceError("Error reading file!");
                 throw new ArgumentNullException();
             }
         }

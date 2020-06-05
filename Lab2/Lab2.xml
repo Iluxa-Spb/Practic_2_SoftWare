@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Lab2</name>
+    </assembly>
+    <members>
+        <member name="M:Lab2.CommercialSoftware.#ctor(System.String,System.String,System.DateTime,System.Int32,System.DateTime)">
+            <summary>
+            class commercial software include from Software
+            </summary>
+            <param name="title">title name software</param>
+            <param name="manufacturer">manufacter software</param>
+            <param name="date">data create software</param>
+            <param name="price">price software</param>
+            <param name="dateuseful">data final using software</param>
+        </member>
+        <member name="M:Lab2.CommercialSoftware.Display">
+            <summary>
+            display method
+            </summary>
+        </member>
+        <member name="M:Lab2.CommercialSoftware.IsActive">
+            <summary>
+            boolean method return active software or not
+            </summary>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:Lab2.FreeSoftware.#ctor(System.String,System.String,System.DateTime)">
+            <summary>
+            class free Software include from Software
+            </summary>
+            <param name="title">title name software</param>
+            <param name="manufacturer">manufacter software</param>
+            <param name="date">data create software</param>
+        </member>
+        <member name="M:Lab2.FreeSoftware.Display">
+            <summary>
+            display method
+            </summary>
+        </member>
+        <member name="M:Lab2.FreeSoftware.IsActive">
+            <summary>
+            boolean method return active software or not
+            </summary>
+            <returns>true</returns>
+        </member>
+        <member name="M:Lab2.Program.Main(System.String[])">
+            <summary>
+            Run program
+            </summary>
+            <param name="args"></param>
+        </member>
+        <member name="M:Lab2.SharewareSoftware.#ctor(System.String,System.String,System.DateTime,System.DateTime)">
+            <summary>
+            class shareware software include from Software
+            </summary>
+            <param name="title">title name software</param>
+            <param name="manufacturer">manufacter software</param>
+            <param name="date">data create software</param>
+            <param name="dateuseful">data final using software</param>
+        </member>
+        <member name="M:Lab2.SharewareSoftware.Display">
+            <summary>
+            display method
+            </summary>
+        </member>
+        <member name="M:Lab2.SharewareSoftware.IsActive">
+            <summary>
+            boolean method return active software or not
+            </summary>
+            <returns>true or false</returns>
+        </member>
+        <member name="T:Lab2.Software">
+            <summary>
+            abstract class Software
+            </summary>
+        </member>
+        <member name="M:Lab2.Software.#ctor(System.String,System.String,System.DateTime)">
+            <summary>
+            init Software class
+            </summary>
+            <param name="title">title name software</param>
+            <param name="manufacturer">manufacter software</param>
+            <param name="date">data create software</param>
+        </member>
+        <member name="M:Lab2.Software.Display">
+            <summary>
+            abstract display method
+            </summary>
+        </member>
+        <member name="M:Lab2.Software.IsActive">
+            <summary>
+            abstract boolean method return active software or not
+            </summary>
+            <returns>true or false</returns>
+        </member>
+        <member name="M:Lab2.SoftwareList.#ctor">
+            <summary>
+            default
+            </summary>
+        </member>
+        <member name="M:Lab2.SoftwareList.#ctor(System.String,System.String)">
+            <summary>
+            overloading in file
+            </summary>
+            <param name="path">file URL</param>
+            <param name="fileName">file name</param>
+        </member>
+        <member name="M:Lab2.SoftwareList.Add(Lab2.Software)">
+            <summary>
+            add new software in list
+            </summary>
+            <param name="software"></param>
+        </member>
+        <member name="M:Lab2.SoftwareList.Show">
+            <summary>
+            show all list
+            </summary>
+        </member>
+        <member name="M:Lab2.SoftwareList.Search(System.String)">
+            <summary>
+            search in list
+            </summary>
+            <param name="searchString">search string</param>
+        </member>
+        <member name="M:Lab2.SoftwareList.WriteFile(System.String,System.String)">
+            <summary>
+            wrire in file
+            </summary>
+            <param name="path">file URL</param>
+            <param name="fileName">file name</param>
+        </member>
+        <member name="M:Lab2.SoftwareList.ReadingFile(System.String,System.String)">
+            <summary>
+            reading from file
+            </summary>
+            <param name="path">file URL</param>
+            <param name="fileName">file name</param>
+        </member>
+    </members>
+</doc>
